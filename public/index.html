@@ -1,42 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style src="css/style.css"></style>
-    <title>Document</title>
-</head>
-<script type="module">
-    import {shuffleDeck, drawCard} from "/js/game.js";
-
-    let drawBtn = document.getElementById("btnDraw")
-    let container = document.getElementById("container")
-    let spanDeck = document.getElementById("spanDeck")
-    shuffleDeck()
-    drawBtn.addEventListener("click", drawCard)
-
     
-</script>   
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style src="css/style.css"></style>
+        <title>Document</title>
+    </head>
+    <script type="module">
+        let btnLogin = document.getElementById("btnLogin");
+        let inpUsername = document.getElementById("inpUsername")
+        let inpPwd = document.getElementById("inpPwd");
+        btnLogin.addEventListener("click", function (evt) {
+            
+        })
+    </script>   
     <body>
-        <style>
-            .row{
-                display: flex;
-                width:fit-content;
-            }
-            .card{
-                margin-right: 1em;
-                padding: 0.5em;
-                max-width: 5rem;
-            }
-            #spanDeck{
-                font-weight: bold;
-            }
-        </style>
-        <h1>Test av "Deck of cards API</h1>
-        <p>Sjekke <a href="https://deckofcardsapi.com/">her</a> for dokumentasjon</p>
-        <p>Antall kort i stokken: <span id="spanDeck">0</span></p>
-        <button id="btnDraw">Draw Card</button>
-        <div id="container"></div>
+        <h1>Login homebar</h1>
+        <label for="inpUsername">Brukernavn:</label>
+        <input type="text" id="inpUsername" placeholder="Skriv inn brukernavn">
+        <br>
+        <label for="inpPwd" class="form-label">Passord:</label>
+        <input type="password" id="inpPwd" placeholder="Skriv inn passord">
+        <br>
+        <button id="btnLogin">Logg inn</button>
+        
+        <p id="txtResult"></p>
+
+        <a href="regbruker.html">Opprett ny bruker</a>
+    
     </body>
 </html>
