@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Dyrebasen - Opprett bruker</title>
+    </head>
+
+    <body>
+        <h1>Welcome to Homebar!</h1>
+            
+        <h2>Registrer a new user</h2><br>
+
+        <label for="regusername">Username:</label>
+        <input type="text" id="regusername" placeholder="Username.." name="brukernavn">
+        <br>                              
+        <label for="regpwd">Password:</label>
+        <input type="password"id="regpwd" placeholder="Password.." name="pswd">
+        <br>                    
+        <label for="confirmpwd">Confirm password:</label>
+        <input type="password" id="confirmpwd" placeholder="Confirm passord" name="pswd">
+        <br>                       
+                                            
+        <p id="txtResult"></p>
+                                            
+        <button type="button" id="btnRegUser">Registrer</button>
+        <br>
+        <a href="../index.html" id="loginLink">Back to login</a>
+
+        <script type="module">
+            import {addUser} from "/js/user.js"
+            let regusername = document.getElementById("regusername");
+            let regpwd = document.getElementById("regpwd");
+            let confirmpwd = document.getElementById("confirmpwd");
+            let btnRegUser = document.getElementById("btnRegUser");
+            let txtResult = document.getElementById("txtResult");
+
+            btnRegUser.addEventListener("click", function (evt) {
+                if (regpwd.value !== confirmpwd.value) {
+                    txtResult.innerHTML = "Ikke samme password";
+                    return
+                }
+                addUser(regusername,regpwd);
+            })
+        </script>
+    </body>
+    
+</html>

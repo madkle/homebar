@@ -8,27 +8,52 @@
         <style src="css/style.css"></style>
         <title>Document</title>
     </head>
-    <script type="module">
-        let btnLogin = document.getElementById("btnLogin");
-        let inpUsername = document.getElementById("inpUsername")
-        let inpPwd = document.getElementById("inpPwd");
-        btnLogin.addEventListener("click", function (evt) {
-            
-        })
-    </script>   
+       
     <body>
         <h1>Login homebar</h1>
-        <label for="inpUsername">Brukernavn:</label>
-        <input type="text" id="inpUsername" placeholder="Skriv inn brukernavn">
+        <label for="inpUsername">Username:</label>
+        <input type="text" id="inpUsername" placeholder="Username...">
         <br>
         <label for="inpPwd" class="form-label">Passord:</label>
-        <input type="password" id="inpPwd" placeholder="Skriv inn passord">
+        <input type="password" id="inpPwd" placeholder=" Password...">
         <br>
-        <button id="btnLogin">Logg inn</button>
+        <button type="button" id="btnLogin">Login</button>
         
         <p id="txtResult"></p>
 
-        <a href="regbruker.html">Opprett ny bruker</a>
+        <a href="html/reguser.html">Create a new user</a>
+        <script type="module">
+            import {createCredentialString} from "/js/user.js"
     
+            let btnLogin = document.getElementById("btnLogin");
+            let inpUsername = document.getElementById("inpUsername")
+            let inpPwd = document.getElementById("inpPwd");
+            btnLogin.addEventListener("click", async function (evt) {
+                let url = "/user/login";
+                let credString = createCredentialString(inpUsername.value, inpPwd.value)
+                    
+                let cfg = {
+                    method: "POST",
+                    headers: {
+                        "authorization": credString
+                    }
+                };
+                    
+                try {
+                    let response = await fetch(url, cfg);
+                    let data = await response.json();
+                    if (response.status != 200) {
+                        throw data.error;
+                    }
+                    
+                    localStorage.setItem("token",data.token)
+                    location.href = "html/main.html"
+                }
+                catch(error) {
+                    console.log(error);
+                    txtResult.innerHTML = error
+                }
+            })
+        </script>
     </body>
 </html>
