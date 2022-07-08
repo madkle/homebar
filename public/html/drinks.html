@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Add drink</h1>
+    <div id="grid-container">
+      <div class="item1">
+        <p class="overskrft">Overskrift</p>
+        <form id="formDrinkName">
+          <label for="drinkName">Drinkname:</label><br />
+          <input type="text" id="drinkName" name="drinkName" /><br />
+          <br />
+          <input type="button" id="btnStartDrink" value="Start drink" />
+        </form>
+
+        <form id="formDrinkIng" hidden>
+          <label for="iname">Ingredient:</label><br />
+          <input type="text" id="iname" name="iname" value="" /><br />
+
+          <label for="lname">Amount:</label>
+          <label for="iEnhet">Enhet:</label><br />
+          <input type="number" id="iAmount" name="iAmount" />
+          <input type="text" id="iEnhet" name="iEnhet" />
+          <br /><br />
+          <input type="button" id="btnAddIngredient" value="Add ingredient" />
+        </form>
+      </div>
+      <div class="item2">
+        <p class="overskrft">Ingredienser</p>
+        <div id="list">
+          <h3>Navn på drink</h3>
+          <p><span>X</span>Coffee</p>
+          <p><span>X</span>Tea</p>
+          <p>Milk</p>
+        </div>
+        <button type="button" id="SubmitDrink">Submit drink</button>
+      </div>
+    </div>
+    <script type="module">
+      let btnStartDrink = document.getElementById("btnStartDrink");
+      let btnAddIngredient = document.getElementById("btnAddIngredient");
+
+      let formDrinkName = document.getElementById("formDrinkName");
+      let formDrinkIng = document.getElementById("formDrinkIng");
+
+      btnStartDrink.addEventListener("click", function () {
+        let inpDrinkName = document.getElementById("drinkName");
+        if (inpDrinkName.value) {
+          console.log(inpDrinkName.value);
+
+          formDrinkName.hidden = true;
+          formDrinkIng.hidden = false;
+        }
+      });
+
+      btnAddIngredient.addEventListener("click", function () {
+        let iname = document.getElementById("iname");
+        let iAmount = document.getElementById("drinkName");
+        let inpDrinkName = document.getElementById("drinkName");
+        if (inpDrinkName.value) {
+          console.log(inpDrinkName);
+
+          formDrinkName.hidden = false;
+          formDrinkIng.hidden = true;
+        }
+      });
+      function deleteItem(item) {
+        console.log(item);
+      }
+    </script>
+  </body>
+</html>

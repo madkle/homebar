@@ -1,0 +1,70 @@
+:root{
+    --SizeOverskrift: 1.875em;
+    --SizeRest: var(--SizeOverskrift)-1;
+  }
+  
+  #grid-container {
+    display: grid;
+    grid:'input list';
+    gap: 1em;
+    background-color: #2196F3;
+    padding: 10px;
+    height: 30em;
+  }
+  
+  #grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px, 0;
+    justify-items: center;
+  }
+  
+  
+  .item1{
+      grid-area: input; 
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: max-content;
+      gap: 1em;
+      padding: 0.5em;
+  }
+  
+  .item2{
+      grid-area: list; 
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: max-content auto auto;
+      gap: 1em;
+      padding: 0.5em;
+      align-items: center;
+  }
+  
+  .overskrft{
+      grid-column: 1;
+      grid-row: 1;
+      font-size: var(--SizeOverskrift);
+  }
+  #SubmitDrink{
+      
+      font-size: var(--SizeRest);
+      width: 5em;
+      height: auto;
+  }
+  #list{
+      justify-items: left;
+      font-size: var(--SizeRest);
+      grid-row: 2;
+  }
+  #list>p{
+    margin: 10px 0;
+    }
+#list>p>span{
+    margin-right: 5px;
+    border: 1px black solid;
+    padding: 2px 5px;
+}
+
+#SubmitDrink{
+    margin: 1fr;
+}
+  
+  
